@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
-namespace MeetupDS
+namespace Meetup_Project
 {
     public class Startup
     {
