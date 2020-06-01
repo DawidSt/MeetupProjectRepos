@@ -16,14 +16,7 @@ namespace Meetup_Project.Messages.Responses
         public string PostCode { get; }
         public List<LecturesDto> Lectures { get; }
 
-        public MeetupDetailsResponse(
-            string name,
-            string organizer,
-            DateTime date,
-            bool isPrivate,
-            string city,
-            string street,
-            string postCode,
+        public MeetupDetailsResponse(string name, string organizer, DateTime date, bool isPrivate, string city, string street, string postCode,
             
             
             List<LecturesDto> lectures) {
