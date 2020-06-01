@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Messages\Responses\" />
-    <Folder Include="Messages\Requests\" />
   </ItemGroup>
 
 </Project>
