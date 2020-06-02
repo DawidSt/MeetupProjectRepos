@@ -29,4 +29,16 @@ namespace Meetup_Project.Messages.Requests
         public string Topic { get; set; }
         public string Description { get; set; }
     }
+
+    public class MeetupRequestValidator: AbstractValidator<MeeetupRequest>
+    {
+        public MeetupRequestValidator()
+        {
+            RuleFor(x => x.Name)
+                .MinimumLength(3);
+            RuleFor(x => x.Organizer)
+                .NotEmpty();
+            
+        }
+    }
 }
