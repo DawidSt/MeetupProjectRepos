@@ -41,4 +41,15 @@ namespace Meetup_Project.Messages.Requests
             
         }
     }
+
+    public class LectureValidator: AbstractValidator<LectureDto>
+    {
+        public LectureValidator()
+        {
+            RuleFor(x => x.Author)
+                .NotEmpty();
+            RuleFor(x => x.Topic)
+                .NotEmpty();
+        }
+    }
 }
