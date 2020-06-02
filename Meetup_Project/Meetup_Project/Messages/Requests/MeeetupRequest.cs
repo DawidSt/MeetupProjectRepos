@@ -38,6 +38,8 @@ namespace Meetup_Project.Messages.Requests
                 .MinimumLength(3);
             RuleFor(x => x.Organizer)
                 .NotEmpty();
+            RuleForEach(x => x.Lectures)
+                .SetValidator(new LectureValidator());
             
         }
     }
