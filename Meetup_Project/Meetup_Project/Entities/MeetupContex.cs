@@ -16,7 +16,14 @@ namespace Meetup_Project.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-          
+            modelBuilder.Entity<Meetup>()
+                  .HasOne(m => m.Location)
+                  .WithOne(l => l.Meetup)
+                  .HasForeignKey<Localization>(l => l.MeetupId);
+
+            modelBuilder.Entity<Meetup>()
+                .HasMany(m => m.Lectures)
+                .WithOne(l => l.Meetup);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
