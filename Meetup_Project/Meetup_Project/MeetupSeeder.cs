@@ -36,7 +36,7 @@ namespace Meetup_Project
                     Organizer = "Microsoft",
                     Location = new Localization
                     {
-                        City = "Ktaków",
+                        City = "KrakÃ³w",
                         Street = "Szeroka 33",
                         PostCode = "31-337"
                     },
@@ -75,7 +75,7 @@ namespace Meetup_Project
                         {
                             Author = "John Cenah",
                             Topic = "Angular Store",
-                            Description = "Ngxs in prctice"
+                            Description = "Ngxs in practice"
                         }
                     }
 
