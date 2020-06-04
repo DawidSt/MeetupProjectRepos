@@ -34,10 +34,9 @@ namespace Meetup_Project.Controllers
                             x.Location.City))
                         .ToListAsync();
                 }
-        
-                
 
-        // GET api/values/5
+
+                // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
