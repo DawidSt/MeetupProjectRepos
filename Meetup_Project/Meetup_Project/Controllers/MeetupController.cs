@@ -2,14 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Meetup_Project.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Meetup_Project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class MeetupController : ControllerBase
     {
+        private readonly MeetupContex _meetupContex;
+
+        public MeetupController(MeetupContex meetupContex)
+        {
+            _meetupContex = meetupContex;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
