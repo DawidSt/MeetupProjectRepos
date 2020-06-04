@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Meetup_Project.Entities;
+using Meetup_Project.Messages.Responses;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Meetup_Project.Controllers
 {
@@ -19,20 +21,21 @@ namespace Meetup_Project.Controllers
         }
         
         
+         [HttpGet]
+                public async Task<List<MeetupListResponse>> Get()
+                {
+                    return await _meetupContex.Meetups
+                        .Include(m => m.Location)
+                        .Select(x => new MeetupListResponse(x.Id,
+                            x.Name,
+                            x.Organizer,
+                            x.Date,
+                            x.IsPrivate,
+                            x.Location.City))
+                        .ToListAsync();
+                }
         
-        
-        
-        
-        
-        
-        
-
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+                
 
         // GET api/values/5
         [HttpGet("{id}")]
