@@ -86,8 +86,11 @@ namespace Meetup_Project.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            var meetup = await _meetupContex.Meetups
+                .Include(m => m.Location)
+                .SingleOrDefaultAsync(m => m.Id == id);
         }
     }
 }
