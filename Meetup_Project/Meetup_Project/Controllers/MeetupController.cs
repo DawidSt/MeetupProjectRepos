@@ -68,6 +68,10 @@ namespace Meetup_Project.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] MeeetupRequest request)
         {
+            var meetup = new Meetup
+            {
+                Location = new Localization(),
+        };
 
 
 
