@@ -8,6 +8,7 @@ using Meetup_Project.Messages.Responses;
 using Meetup_Project.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 namespace Meetup_Project.Controllers
 {
@@ -72,7 +73,7 @@ namespace Meetup_Project.Controllers
             {
                 Location = new Localization(),
         };
-
+            
 
 
         }
