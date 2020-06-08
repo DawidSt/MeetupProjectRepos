@@ -66,8 +66,11 @@ namespace Meetup_Project.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult> Post([FromBody] MeeetupRequest request)
         {
+
+
+
         }
 
         // PUT api/values/5
