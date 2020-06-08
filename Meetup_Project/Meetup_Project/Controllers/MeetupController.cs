@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Meetup_Project.Entities;
+using Meetup_Project.Messages;
+using Meetup_Project.Messages.Requests;
 using Meetup_Project.Messages.Responses;
+using Meetup_Project.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Meetup_Project.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[meetup]")]
     [ApiController]
     public class MeetupController : ControllerBase
     {
@@ -38,9 +40,28 @@ namespace Meetup_Project.Controllers
 
                 // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<ActionResult<MeetupDetailsResponse>> Get(int id)
         {
-            return "value";
+            var meetup = await _meetupContex.Meetups
+                .Include(m => m.Location)
+                .Include(x => x.Lectures)
+                .SingleOrDefaultAsync(m => m.Id == id);
+            if (meetup==null)
+            {
+                return NotFound();
+            }
+            return new MeetupDetailsResponse(meetup.Name,
+                meetup.Organizer,
+                meetup.Date,
+                meetup.IsPrivate,
+                meetup.Location?.City,
+                meetup.Location?.Street,
+                meetup.Location?.PostCode,
+                meetup.Lectures?.Select(x => new MeetupDetailsResponse.LecturesDto(x.Id,
+                    x.Author,
+                    x.Topic,
+                    x.Description))
+                .ToList());
         }
 
         // POST api/values
