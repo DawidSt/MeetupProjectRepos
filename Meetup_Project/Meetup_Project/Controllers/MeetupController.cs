@@ -22,24 +22,24 @@ namespace Meetup_Project.Controllers
         {
             _meetupContex = meetupContex;
         }
-        
-        
-         [HttpGet]
-                public async Task<List<MeetupListResponse>> Get()
-                {
-                    return await _meetupContex.Meetups
-                        .Include(m => m.Location)
-                        .Select(x => new MeetupListResponse(x.Id,
-                            x.Name,
-                            x.Organizer,
-                            x.Date,
-                            x.IsPrivate,
-                            x.Location.City))
-                        .ToListAsync();
-                }
 
 
-                // GET api/values/5
+        [HttpGet]
+        public async Task<List<MeetupListResponse>> Get()
+        {
+            return await _meetupContex.Meetups
+                .Include(m => m.Location)
+                .Select(x => new MeetupListResponse(x.Id,
+                    x.Name,
+                    x.Organizer,
+                    x.Date,
+                    x.IsPrivate,
+                    x.Location.City))
+                .ToListAsync();
+        }
+
+
+        // GET api/values/5
         [HttpGet("{id}")]
         public async Task<ActionResult<MeetupDetailsResponse>> Get(int id)
         {
@@ -47,10 +47,11 @@ namespace Meetup_Project.Controllers
                 .Include(m => m.Location)
                 .Include(x => x.Lectures)
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (meetup==null)
+            if (meetup == null)
             {
                 return NotFound();
             }
+
             return new MeetupDetailsResponse(meetup.Name,
                 meetup.Organizer,
                 meetup.Date,
@@ -59,10 +60,10 @@ namespace Meetup_Project.Controllers
                 meetup.Location?.Street,
                 meetup.Location?.PostCode,
                 meetup.Lectures?.Select(x => new MeetupDetailsResponse.LecturesDto(x.Id,
-                    x.Author,
-                    x.Topic,
-                    x.Description))
-                .ToList());
+                        x.Author,
+                        x.Topic,
+                        x.Description))
+                    .ToList());
         }
 
         // POST api/values
@@ -75,7 +76,6 @@ namespace Meetup_Project.Controllers
             };
 
             return Ok();
-
         }
 
         // PUT api/values/5
@@ -101,17 +101,19 @@ namespace Meetup_Project.Controllers
             {
                 return BadRequest();
             }
+
             return Ok();
         }
+
         private void MapPropsToRecord(Meetup record, MeetupRequest request)
         {
-        record.Name = request.Name;
-        record.Date = request.Date;
-        record.Organizer = request.Organizer;
-        record.IsPrivate = request.IsPrivate;
-        record.Location.City = request.City;
-        record.Location.Street = request.Street;
-        record.Location.PostCode = request.PostalCode;
+            record.Name = request.Name;
+            record.Date = request.Date;
+            record.Organizer = request.Organizer;
+            record.IsPrivate = request.IsPrivate;
+            record.Location.City = request.City;
+            record.Location.Street = request.Street;
+            record.Location.PostCode = request.PostalCode;
         }
 
         private void AddLectures(Meetup record, ICollection<LectureDto> lectures)
@@ -120,10 +122,14 @@ namespace Meetup_Project.Controllers
             {
                 record.Lectures.Add(new Lectures(lecture.Author, lecture.Topic, lecture.Description));
             }
-
         }
 
-
+        private void RemoveLectures(Meetup record, ICollection<LectureDto> lectures)
+        {
+            var recordToRemove = record.Lectures
+                .Where(x => !lectures.Select(y => y.Id).Contains(x.Id))
+                .ToList();
+            recordToRemove.ForEach(x => record.Lectures.Remove(x));
+        }
     }
-    
 }
