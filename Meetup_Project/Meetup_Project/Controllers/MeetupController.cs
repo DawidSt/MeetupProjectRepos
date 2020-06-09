@@ -103,5 +103,16 @@ namespace Meetup_Project.Controllers
             }
             return Ok();
         }
+        private void MapPropsToRecord(Meetup record, MeetupRequest request)
+    {
+        record.Name = request.Name;
+        record.Date = request.Date;
+        record.Organizer = request.Organizer;
+        record.IsPrivate = request.IsPrivate;
+        record.Location.City = request.City;
+        record.Location.Street = request.Street;
+        record.Location.PostCode = request.PostalCode;
     }
+    }
+    
 }
