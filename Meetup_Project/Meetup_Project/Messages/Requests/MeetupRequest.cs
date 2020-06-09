@@ -8,7 +8,7 @@ using Meetup_Project.Messages.Responses;
 
 namespace Meetup_Project.Messages.Requests
 {
-    public class MeeetupRequest
+    public class MeetupRequest
     {
         public string Name { get; set; }
         public string Organizer { get; set; }
@@ -30,7 +30,7 @@ namespace Meetup_Project.Messages.Requests
         public string Description { get; set; }
     }
 
-    public class MeetupRequestValidator: AbstractValidator<MeeetupRequest>
+    public class MeetupRequestValidator: AbstractValidator<MeetupRequest>
     {
         public MeetupRequestValidator()
         {

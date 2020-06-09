@@ -80,7 +80,7 @@ namespace Meetup_Project.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<ActionResult> Put(int id, [FromBody] MeetupRequest request)
         {
         }
 
@@ -91,6 +91,12 @@ namespace Meetup_Project.Controllers
             var meetup = await _meetupContex.Meetups
                 .Include(m => m.Location)
                 .SingleOrDefaultAsync(m => m.Id == id);
+
+            if (meetup == null)
+            {
+                return BadRequest();
+            }
+
         }
     }
 }
