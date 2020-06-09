@@ -20,14 +20,15 @@ namespace Meetup_Project.Entities
             
         }
 
-        public Lectures(int id, string author, string topic, string description, Meetup meetup, int meetupId)
+        public Lectures( string author, string topic, string description)
         {
-            Id = id;
+            
             Author = author;
             Topic = topic;
             Description = description;
-            Meetup = meetup;
-            MeetupId = meetupId;
+           
         }
+
+        
     }
 }
