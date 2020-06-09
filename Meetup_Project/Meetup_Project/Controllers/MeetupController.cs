@@ -104,7 +104,7 @@ namespace Meetup_Project.Controllers
             return Ok();
         }
         private void MapPropsToRecord(Meetup record, MeetupRequest request)
-    {
+        {
         record.Name = request.Name;
         record.Date = request.Date;
         record.Organizer = request.Organizer;
@@ -112,7 +112,18 @@ namespace Meetup_Project.Controllers
         record.Location.City = request.City;
         record.Location.Street = request.Street;
         record.Location.PostCode = request.PostalCode;
-    }
+        }
+
+        private void AddLectures(Meetup record, ICollection<LectureDto> lectures)
+        {
+            foreach (var lecture in lectures)
+            {
+                record.Lectures.Add(new Lectures(lecture.Author, lecture.Topic, lecture.Description));
+            }
+
+        }
+
+
     }
     
 }
