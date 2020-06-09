@@ -67,12 +67,12 @@ namespace Meetup_Project.Controllers
 
         // POST api/values
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] MeeetupRequest request)
+        public async Task<ActionResult> Post([FromBody] MeetupRequest request)
         {
             var meetup = new Meetup
             {
                 Location = new Localization(),
-        };
+            };
             
 
 
@@ -82,6 +82,11 @@ namespace Meetup_Project.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] MeetupRequest request)
         {
+            var meetup = await _meetupContex.Meetups
+                .Include(x => x.Location)
+                .Include(x => x.Lectures)
+                .SingleOrDefaultAsync(m => m.Id == id);
+            return Ok();
         }
 
         // DELETE api/values/5
