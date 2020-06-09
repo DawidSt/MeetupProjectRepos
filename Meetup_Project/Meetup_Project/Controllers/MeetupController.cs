@@ -73,8 +73,8 @@ namespace Meetup_Project.Controllers
             {
                 Location = new Localization(),
             };
-            
 
+            return Ok();
 
         }
 
