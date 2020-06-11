@@ -78,6 +78,9 @@ namespace Meetup_Project.Controllers
             MapPropsToRecord(meetup, request);
             AddLectures(meetup, request?.Lectures);
 
+            _meetupContex.Meetups.Add(meetup);
+            await _meetupContex.SaveChangesAsync();
+
             return Ok();
         }
 
