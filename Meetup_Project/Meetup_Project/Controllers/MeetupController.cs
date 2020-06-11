@@ -102,6 +102,7 @@ namespace Meetup_Project.Controllers
             RemoveLectures(meetup, request.Lectures);
             AddLectures(meetup, request.Lectures);
 
+            await _meetupContex.SaveChangesAsync();
 
             return Ok();
         }
