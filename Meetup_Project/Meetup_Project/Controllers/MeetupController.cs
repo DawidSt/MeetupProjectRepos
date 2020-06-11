@@ -75,6 +75,9 @@ namespace Meetup_Project.Controllers
                 Location = new Localization(),
             };
 
+            MapPropsToRecord(meetup, request);
+            AddLectures(meetup, request?.Lectures);
+
             return Ok();
         }
 
