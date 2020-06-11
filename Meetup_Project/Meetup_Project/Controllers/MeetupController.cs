@@ -92,6 +92,17 @@ namespace Meetup_Project.Controllers
                 .Include(x => x.Location)
                 .Include(x => x.Lectures)
                 .SingleOrDefaultAsync(m => m.Id == id);
+
+            if (meetup == null)
+            {
+                return BadRequest();
+            }
+
+            MapPropsToRecord(meetup, request);
+            RemoveLectures(meetup, request.Lectures);
+            AddLectures(meetup, request.Lectures);
+
+
             return Ok();
         }
 
