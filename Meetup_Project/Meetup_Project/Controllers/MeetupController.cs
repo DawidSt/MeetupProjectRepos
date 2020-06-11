@@ -119,6 +119,9 @@ namespace Meetup_Project.Controllers
             {
                 return BadRequest();
             }
+            _meetupContex.Remove(meetup);
+
+            await _meetupContex.SaveChangesAsync();
 
             return Ok();
         }
