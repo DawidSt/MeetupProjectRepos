@@ -40,7 +40,7 @@ namespace Meetup_Project
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, MeetupSeeder meetupSeeder)
         {
             if (env.IsDevelopment())
             {
@@ -64,7 +64,7 @@ namespace Meetup_Project
                 );
             app.UseMvc();
 
-           
+            meetupSeeder.Seed();
 
             }
     }
