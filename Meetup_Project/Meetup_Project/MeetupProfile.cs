@@ -12,7 +12,10 @@ namespace Meetup_Project
     {
         public MeetupProfile()
         {
-            //CreateMap<Meetup>()
+            CreateMap()
+            {
+
+            }
         }
     }
 }
