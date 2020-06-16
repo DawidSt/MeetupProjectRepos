@@ -18,8 +18,6 @@ namespace Meetup_Project.Messages.Requests
         public string PostalCode { get; set; }
         public string Street { get; set; }
         public ICollection<LectureDto> Lectures { get; set; }
-
-
     }
 
     public class LectureDto
@@ -40,7 +38,6 @@ namespace Meetup_Project.Messages.Requests
                 .NotEmpty();
             RuleForEach(x => x.Lectures)
                 .SetValidator(new LectureValidator());
-            
         }
     }
 

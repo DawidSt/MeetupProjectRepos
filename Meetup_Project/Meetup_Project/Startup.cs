@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
+
 namespace Meetup_Project
 {
     public class Startup
@@ -33,7 +34,7 @@ namespace Meetup_Project
             services.AddMvc()
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>())
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-                services.AddScoped<MeetupSeeder>();
+                services.AddDbContext<MeetupContex>();
                 services.AddScoped<MeetupSeeder>();
                  services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" }); });
             services.AddCors();

@@ -10,7 +10,12 @@ namespace Meetup_Project.Messages.Responses
              public bool IsPrivate { get; }
              public string City { get; }
      
-             public MeetupListResponse(int id, string name, string organizer, DateTime date, bool isPrivate, string city)
+             public MeetupListResponse(int id, 
+                 string name, 
+                 string organizer, 
+                 DateTime date, 
+                 bool isPrivate, 
+                 string city)
              {
                  Id = id;
                  Name = name;
