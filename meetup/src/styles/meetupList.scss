@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import "constants";
+
+.add {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 3em;
+  background: rgb(4, 255, 255);
+  box-shadow: 0 2px 4px 0 rgba(46, 62, 72, 0.12);
+  z-index: 3;
+  text-align: center;
+
+  &__btn {
+    text-decoration: none;
+    color: #282c34;
+    text-transform: uppercase;
+    padding: 2em;
+
+    &:hover {
+      color: $colorAccent;
+    }
+  }
+}
+
+.mapMarker {
+  padding-right: 5px;
+}
+
+.container__meetupList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  top: 2em;
+  position: relative;
+  width: 60%;
+  alignment: center;
+  left: 20%;
+}
+
+.meetupListItem {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1em;
+  align-items: center;
+  justify-content: center;
+
+  &__content {
+    flex: 1 1 30%;
+    padding: 2em;
+    min-width: 100px;
+    border: $colorPrimary 1px solid;
+    border-radius: 25px;
+    box-shadow: 0 0 2px 0 rgba(46, 62, 72, 0.12),
+      0 2px 4px 0 rgba(46, 62, 72, 0.12);
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #282c34;
+  }
+
+  &__details {
+    position: relative;
+    color: $colorAccent;
+    background: transparent;
+    border-radius: 15px;
+    border: $colorAccent 1px solid;
+    padding: 15px;
+    width: 100px;
+    text-align: center;
+    left: 50%;
+    overflow: hidden;
+
+    &:hover {
+      color: white;
+      background: $colorAccent;
+      cursor: pointer;
+    }
+  }
+}
+
+.date {
+  color: $colorAccent;
+}
