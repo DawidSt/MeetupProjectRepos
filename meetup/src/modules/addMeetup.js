@@ -8,7 +8,7 @@ const AddMeetup = () => {
         {
           author: "",
           topic: "",
-          description: "", //ddqwqdwqwd
+          description: "",
         },
       ],
     },
