@@ -12,7 +12,7 @@ using AutoMapper;
 
 namespace Meetup_Project.Controllers
 {
-    [Route("api/[meetup]")]
+    [Route("api/meetup")]
     [ApiController]
     public class MeetupController : ControllerBase
     {
