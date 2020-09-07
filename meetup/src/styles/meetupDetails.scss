@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import "constants";
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.meetupName {
+  text-align: center;
+}
+
+.details {
+  display: grid;
+  &__header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 3em;
+    background: white;
+    box-shadow: 0 2px 4px 0 rgba(46, 62, 72, 0.12);
+    z-index: 3;
+    text-align: right;
+
+    &__btn {
+      text-decoration: none;
+      color: #282c34;
+      text-transform: uppercase;
+      padding-right: 1.5em;
+      padding-bottom: 2em;
+
+      &:hover {
+        color: $colorAccent;
+      }
+    }
+  }
+}
+
+.organizer {
+  margin: 0;
+  text-align: center;
+}
+
+.lectures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+small {
+  padding-top: 5em;
+  text-align: center;
+  color: $colorSecondary;
+}
+
+p {
+  text-align: center;
+  margin: 0;
+  padding-top: 0.2em;
+}
+
+h3 {
+  padding-top: 2em;
+  text-align: center;
+}
+
+.back-btn {
+  position: relative;
+  color: $colorAccent;
+  background: transparent;
+  border-radius: 15px;
+  border: $colorAccent 1px solid;
+  padding: 15px;
+  width: 50%;
+  text-align: center;
+  left: 25%;
+  overflow: hidden;
+
+  &:hover {
+    color: white;
+    background: $colorAccent;
+    cursor: pointer;
+  }
+}

@@ -1,8 +1,8 @@
 import React from "react";
 import moment from "moment";
 import { A } from "hookrouter";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 const MeetupListItem = ({ id, name, city, date, organizer }) => {
   return (
