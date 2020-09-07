@@ -14,6 +14,7 @@ const MeetupListItem = ({ id, name, city, date, organizer }) => {
             <h3>{name}</h3>
             <p>{organizer}</p>
             <div>
+              <FontAwesomeIcon className="mapMarker" icon={faMapMarkerAlt} />
               <span>{city}</span>
             </div>
             <div className="meetupListItem__details">Szczegóły</div>
