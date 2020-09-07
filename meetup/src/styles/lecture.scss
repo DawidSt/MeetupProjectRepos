@@ -1,0 +1,15 @@
+@import "constants";
+
+.lecture-topic {
+  font-weight: bold;
+  padding: 0.5em;
+  list-style-image: url("../assets/minus.svg");
+}
+
+.lecture-list-item {
+  margin-left: 15em;
+}
+
+ul {
+  list-style: none;
+}
